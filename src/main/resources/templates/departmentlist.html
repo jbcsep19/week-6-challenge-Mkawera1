@@ -2,13 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Title</title>
 </head>
 <body>
-<a href="/">index</a><br/>
-<a href="/employeelist">Employee list</a><br/>
-<a href="/adddepartment">Add a Department</a>
-<a href="/addemployee">Add an Employee</a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/adddepartment">New Department</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/addemployee">New Employee</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/departmentlist">All Departments</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/employeelist">All Employees</a>
+        </li>
+
+    </ul>
+</nav>
+<br/>
+
+<!--<a href="/">index</a><br/>-->
+<!--<a href="/departmentlist">Department list</a><br/>-->
+<!--<a href="/employeelist">Employee list</a><br/>-->
+<!--<a href="/adddepartment">Add a Department</a><br/>-->
+<!--<a href="/addemployee">Add an Employee</a><br/>-->
 <h1>Department List</h1>
 <table >
     <tr>
@@ -16,18 +41,18 @@
 
     </tr>
     <tr th:each="department : ${departments}">
-        <td th:text="${department.DName}"></td>
+        <td th:text="${department.dName}"></td>
 
         <td>
 
-            <a th:href="@{/updatedepartment/{id}(id=${department.id})}">Update</a>
-            <a th:href="@{/detaildepartment/{id}(id=${department.id})}">Details</a>
-            <a th:href="@{/deletedepartment/{id}(id=${department.id})}">Delete</a>
+            <a th:href="@{/updatedepartment/{id}(id=${department.id1})}">Update</a>
+            <a th:href="@{/detaildepartment/{id}(id=${department.id1})}">Details</a>
+            <a th:href="@{/deletedepartment/{id}(id=${department.id1})}">Delete</a>
         </td></tr>
 </table>
 
 <div th:each="department:${departments}">
-    <h2 th:text="${department.DName}"></h2>
+    <h2 th:text="${department.dName}"></h2>
     <ul>
         <th:block th:each="employee:${department.employees}">
             <li th:inline="text"><b>[[${employee.name}]]: </b>[[${employee.jobTitle}]]</li>
@@ -36,6 +61,8 @@
 
 
 </div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

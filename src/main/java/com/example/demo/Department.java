@@ -7,27 +7,28 @@ import java.util.Set;
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String DName;
+    private long id1;
+    private String dName;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     public Set<Employee> employees;
 
-    public long getId() {
-        return id;
+
+    public long getId1() {
+        return id1;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId1(long id1) {
+        this.id1 = id1;
     }
 
-    public String getDName() {
-        return DName;
+    public String getdName() {
+        return dName;
     }
 
-    public void setDName(String DName) {
-        this.DName = DName;
+    public void setdName(String dName) {
+        this.dName = dName;
     }
 
     public Set<Employee> getEmployees() {
@@ -38,3 +39,5 @@ public class Department {
         this.employees = employees;
     }
 }
+
+

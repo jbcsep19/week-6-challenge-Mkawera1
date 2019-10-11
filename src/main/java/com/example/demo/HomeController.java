@@ -48,7 +48,7 @@ public class HomeController {
     }
     @RequestMapping("/employeelist")
     public String employeeList(Model model){
-        model.addAttribute("employees", employeeRepository.findAll() );
+        model.addAttribute("employees", employeeRepository.findAll());
         return "employeelist";
     }
 

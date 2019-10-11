@@ -9,11 +9,11 @@ public class Employee {
     private long id;
 
     private String name;
-    private long jobTitle;
+    private String jobTitle;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "id1")
     private Department department;
 
     public long getId() {
@@ -32,11 +32,11 @@ public class Employee {
         this.name = name;
     }
 
-    public long getJobTitle() {
+    public String getJobTitle() {
         return jobTitle;
     }
 
-    public void setJobTitle(long jobTitle) {
+    public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
@@ -48,3 +48,4 @@ public class Employee {
         this.department = department;
     }
 }
+
