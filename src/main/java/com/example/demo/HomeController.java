@@ -19,7 +19,7 @@ public class HomeController {
     EmployeeRepository employeeRepository;
 
     @RequestMapping("/")
-    public String index(Model model) {
+    public String homepage(Model model) {
         model.addAttribute("departments", departmentRepository.findAll());
         model.addAttribute("employees", employeeRepository.findAll());
         return "index";
@@ -90,6 +90,7 @@ public class HomeController {
     @RequestMapping("/updateemployee/{id}")
     public String updateEmployee(@PathVariable("id") long id,Model model){
         model.addAttribute("employee", employeeRepository.findById(id).get());
+        model.addAttribute("departments", departmentRepository.findAll());
         return "employeeform";
     }
     @RequestMapping("/deleteemployee/{id}")
